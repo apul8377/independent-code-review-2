@@ -22,7 +22,6 @@ $(document).ready(function () {
     event.preventDefault();
 
     const userName = $("input#username").val();
-    const passWord = $("input#password").val();
 
     console.log("input received, validating....");
     let newCustomer = new Customer(userName, passWord);
