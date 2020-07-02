@@ -46,10 +46,10 @@ CustomerOrder.prototype.buildPizza = function () {
   let price = getPrice();
   this.price.push(price);
   this.sizeValue.push(size);
-  this.crustValue.push(crust.toString());
-  this.sauceValue.push(sauce.toString());
-  this.toppings.push(toppings.toString());
-  this.cheeseValue.push(cheeses.toString());
+  this.crustValue.push(crust);
+  this.sauceValue.push(sauce);
+  this.toppings.push(toppings);
+  this.cheeseValue.push(cheeses);
 };
 
 //~~~~~~~~~~~~UI logic~~~~~~~~~~~~
@@ -80,7 +80,8 @@ $("document").ready(function () {
         " and " +
         customerOrder.cheeseValue +
         ".Your order number is " +
-        customerDb.orderNumber
+        customerDb.orderNumber +
+        ". We hope to see you again soon!"
     );
   });
 });
@@ -135,6 +136,7 @@ function getSauce() {
 //function to get toppings
 function getToppings() {
   let toppingsValue = [];
+  toppingsValue.shift();
   if (document.getElementById("pepperoni").checked == true) {
     toppingsValue.push("pepperoni");
   }
