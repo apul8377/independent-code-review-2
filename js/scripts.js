@@ -3,6 +3,7 @@
 function CustomerDb() {
   this.customers = [];
   this.orderNumber = 0;
+  this.customersOrder = [];
 }
 //This is our prototype to store both increment the order number and store the name and order number in the DB
 CustomerDb.prototype.storeCustomers = function (customer) {
@@ -10,10 +11,13 @@ CustomerDb.prototype.storeCustomers = function (customer) {
   this.customers.push(customer);
 };
 
+CustomerDb.prototype.storeOrders = function (newPizza) {
+  newPizza = customerOrder;
+  this.customersOrder.push(customerOrder);
+};
 //This is where we will increment an order number by 1 to associate with each new order
 CustomerDb.prototype.assignOrderNumber = function () {
   this.orderNumber += 1;
-  console.log(this.orderNumber);
   return this.orderNumber;
 };
 
@@ -24,30 +28,66 @@ function Customer(name) {
 }
 
 //This is our Pizza Object Constructor where user's choices will be stored
-function CustomerOrder(crustValue, sizeValue, sauceValue, toppings, price) {
-  this.crustValue = crustValue;
-  this.sizeValue = sizeValue;
-  this.toppings = toppings;
-  this.price = price;
+function CustomerOrder() {
+  this.sizeValue = [];
+  this.crustValue = [];
+  this.sauceValue = [];
+  this.cheeseValue = [];
+  this.toppings = [];
+  this.price = 0;
 }
 
 //~~~~~~~~~~~~UI logic~~~~~~~~~~~~
 //This takes the users name from the html form and stores it in username. Then returns username
 
+let customerOrder = new CustomerOrder();
 let customerDb = new CustomerDb();
 $("document").ready(function () {
-  $("form#customer-info").submit(function (event) {
+  $("form#submit-pizza").submit(function (event) {
     event.preventDefault();
+    let newPizza = customerOrder.buildPizza();
     let name = $("input#username").val();
-    // let newNumber = assignOrderNumber();
     let customer = new Customer(name);
     customerDb.storeCustomers(customer);
+    customerDb.storeOrders(newPizza);
     $("input#username").val(" ");
-    $("#username-output").html(
-      "Welcome, " + customer.name + "! Please begin building your pizza."
+    alert(
+      "Thank you, " +
+        name +
+        "!  You've added a " +
+        customerOrder.sizeValue +
+        " " +
+        customerOrder.crustValue +
+        " with " +
+        customerOrder.sauceValue +
+        " sauce, " +
+        customerOrder.toppings +
+        " and " +
+        customerOrder.cheeseValue +
+        ". Will that be all?"
     );
   });
 });
+
+// $("document").ready(function () {
+//     event.preventDefault();
+//     console.log(customerOrder);
+//     alert(
+//       "you've added a " +
+//         customerOrder.sizeValue +
+//         " " +
+//         customerOrder.crustValue +
+//         " with " +
+//         customerOrder.sauceValue +
+//         " sauce, " +
+//         customerOrder.toppings +
+//         " and " +
+//         customerOrder.cheeseValue +
+//         ". Will that be all?"
+//     );
+//   });
+
+// });
 
 //function to get size.
 function getSize() {
@@ -62,7 +102,7 @@ function getSize() {
     sizeValue = "Please select a size.";
   }
   console.log(sizeValue);
-  return sizeValue;
+  return sizeValue.toString();
 }
 
 //function to get crust type.
@@ -78,7 +118,7 @@ function getCrust() {
     crustValue = "Please select a crust.";
   }
   console.log(crustValue);
-  return crustValue;
+  return crustValue.toString();
 }
 
 //function to get sauce type.
@@ -94,9 +134,9 @@ function getSauce() {
     sauceValue = "Please select a sauce.";
   }
   console.log(sauceValue);
-  return sauceValue;
+  return sauceValue.toString();
 }
-
+//function to get toppings
 function getToppings() {
   let toppingsValue = [];
   if (document.getElementById("pepperoni").checked == true) {
@@ -153,7 +193,7 @@ function getToppings() {
   console.log(toppingsValue);
   return toppingsValue;
 }
-
+//function to get cheeses
 function getCheeses() {
   let cheesesValue = [];
   if (document.getElementById("mozarella").checked == true) {
@@ -174,3 +214,60 @@ function getCheeses() {
   console.log(cheesesValue);
   return cheesesValue;
 }
+
+CustomerOrder.prototype.buildPizza = function () {
+  let size = getSize();
+  let crust = getCrust();
+  let sauce = getSauce();
+  let toppings = getToppings();
+  let cheeses = getCheeses();
+  this.sizeValue.push(size.toString());
+  this.crustValue.push(crust.toString());
+  this.sauceValue.push(sauce.toString());
+  this.toppings.push(toppings.toString());
+  this.cheeseValue.push(cheeses.toString());
+};
+
+// function getCost(cheesesValue, toppingsValue, sizeValue) {
+//   let cheese = [cheesesValue];
+//   let toppings = [toppingsValue];
+//   let size = [sizeValue];
+//   let small = 6.99;
+//   let medium = 8.99;
+//   let large = 10.99;
+//   let addPrice = 0.75;
+//   let currentTotal = 0;
+//   console.log(cheese, toppings, size);
+//   if ((sizeValue = small)) {
+//     currentTotal += small;
+//     cheese.forEach((cheese.length() => {
+//       currentTotal = currentTotal + addPrice
+//     });
+//     toppings.forEach((element) => {
+//       currentTotal += addPrice;
+//     });
+//     console.log(element);
+//     return currentTotal;
+//   } else if ((sizeValue = medium)) {
+//     currentTotal += medium;
+//     cheese.forEach((element) => {
+//       currentTotal += addPrice;
+//     });
+//     toppings.forEach((element) => {
+//       currentTotal += addPrice;
+//     });
+//     console.log(element);
+//     return currentTotal;
+//   } else if ((sizeValue = large)) {
+//     currentTotal += large;
+//     cheese.forEach((element) => {
+//       currentTotal += addPrice;
+//     });
+//     toppings.forEach((element) => {
+//       currentTotal += addPrice;
+//     });
+//     console.log(element);
+//     return currentTotal;
+//   }
+//   console.log("Your pizza total is: $" + currentTotal + ".");
+// }

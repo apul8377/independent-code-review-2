@@ -14,14 +14,6 @@
 </HEAD>
 
 <body>
-  <div class="container">
-    <form id="customer-info">
-      Please enter a name for your order:
-      <label for="username">name:</label>
-      <input id="username" type="text">
-      <button type="submit" class="btn">Enter!</button>
-    </form>
-  </div>
   <p>
   <h5>Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99), medium ($8.99) or large ($10.99). standard
     The first two toppings, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
@@ -136,6 +128,14 @@
         Fresh Jalapenos <input type="checkbox" class="topping" id="fresh-jalapenos" value="fresh-jalapenos"
           onclick="if(this.checked){getToppings()}" />
       </div>
+    </form>
+    <br>
+    <br>
+    <form id="submit-pizza">
+      Please enter a name for your order:
+      <label for="username"></label>
+      <input id="username" type="text">
+  <button type="submit" class="btn">Finished building my pizza</button>
     </form>
   </div>
 
