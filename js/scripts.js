@@ -22,10 +22,18 @@ function Customer(name) {
   //this.orderNumber = 0;
 }
 
+//This is our Pizza Object Constructor where user's choices will be stored
+function CustomerOrder(crust, size, toppings, price) {
+  this.crust = crust;
+  this.size = size;
+  this.toppings = toppings;
+  this.price = price;
+}
+
 //~~~~~~~~~~~~UI logic~~~~~~~~~~~~
 //This takes the users name from the html form and stores it in username. Then returns username
-let customerDb = new CustomerDb();
 
+let customerDb = new CustomerDb();
 $("document").ready(function () {
   $("form#customer-info").submit(function (event) {
     event.preventDefault();
@@ -33,5 +41,54 @@ $("document").ready(function () {
     // let newNumber = assignOrderNumber();
     let customer = new Customer(name);
     customerDb.storeCustomers(customer);
+    $("input#username").val(" ");
   });
 });
+
+//function to get size.
+function getSize() {
+  let sizeValue = " ";
+  if (document.getElementById("small").checked == true) {
+    sizeValue = "small";
+  } else if (document.getElementById("medium").checked == true) {
+    sizeValue = "medium";
+  } else if (document.getElementById("large").checked == true) {
+    sizeValue = "large";
+  } else {
+    sizeValue = "Please select a size.";
+  }
+  console.log(sizeValue);
+  return sizeValue;
+}
+
+//function to get crust type.
+function getCrust() {
+  let crustValue = " ";
+  if (document.getElementById("thin").checked == true) {
+    crustValue = "thin-crust";
+  } else if (document.getElementById("wheat").checked == true) {
+    crustValue = "wheat-crust";
+  } else if (document.getElementById("stuffed").checked == true) {
+    crustValue = "stuffed-crust";
+  } else {
+    crustValue = "Please select a crust.";
+  }
+  console.log(crustValue);
+  return crustValue;
+}
+
+//function to get sauce type.
+function getSauce() {
+  let sauceValue = " ";
+  if (document.getElementById("robust-tomato").checked == true) {
+    sauceValue = "robust-tomato";
+  } else if (document.getElementById("honey-barbeque").checked == true) {
+    sauceValue = "honey-barbeque";
+  } else if (document.getElementById("garlic-parmesan").checked == true) {
+    sauceValue = "garlic-parmesan";
+  } else {
+    sauceValue = "Please select a sauce.";
+  }
+  console.log(sauceValue);
+  return sauceValue;
+}

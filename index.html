@@ -6,8 +6,8 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <HEAD>
   <TITLE>Al n Pals Pizza! Freshest Pies made to order!</TITLE>
-  <h1>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
-  <p>We have scrambled eggs & anchovies! Order the Captain's Special! ~~ $11.99 for a 12"</p> </h1>
+  <h3>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
+  <p>We have scrambled eggs & anchovies!</p> </h3>
 </HEAD>
 
 <body>
@@ -21,38 +21,64 @@
     </form>
   </div>
   <p>
-  <h2>Please create your pizza! Each Pizza comes 12" standard The first two toppings, crust, sauce, and 1 cheese are a standard $7.99. Each additional topping after that is an additional $0.75</h2>
+  <h5>Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99), medium ($8.99) or large ($10.99). standard The first two toppings, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
   </p>
   <div class="container">
-    <form id="customer-order">
+
+    <form id="size">
       <div>
-        <label for="crust">Please choose a crust.</label>
-        <ul>
-          <li>stuffed crust</li>
-          <input id="stuffed-crust" type="checkbox">
-          </input>
-          <li>thin crust</li>
-          <input id="thin-crust" type="checkbox">
-          </input>
-          <li>wheat crust</li>
-          <input id="wheat-crust" type="checkbox">
-          </input>
-        </ul>
+        <span>Please choose a size</span>
+        <br>
+        10" pizza (small) <input type="checkbox" class="size" id="small" value="small" onclick="if(this.checked){getSize()}" />
+        12" pizza (medium) <input type="checkbox" class="size" id="medium" value="medium" onclick="if(this.checked){getSize()}" />
+        14" pizza (large) <input type="checkbox" class="size" id="large" value="medium"
+          onclick="if(this.checked){getSize()}" />
+    
+        <script type="text/javascript">
+          $('.size').on('change', function () {
+            $('.size').not(this).prop('checked', false);
+          });
+        </script>
+        <button type="submit" class="btn">Enter</button>
+      </div>
+    </form>
+
+    <form id="crust">
+      <div>
+        <span>Please choose a crust.</span> 
+        <br>
+      Wheat Crust <input type="checkbox" class="crust" id="wheat" value="wheat" onclick="if(this.checked){getCrust()}"  />
+        Thin Crust <input type="checkbox" class="crust" id= "thin" value="thin" onclick="if(this.checked){getCrust()}" />
+        Stuffed Crust <input type="checkbox" class="crust" id= "stuffed" value="stuffed" onclick="if(this.checked){getCrust()}" />
+        
+            <script type="text/javascript">
+              $('.crust').on('change', function () {
+                $('.crust').not(this).prop('checked', false);
+              });
+            </script>
+            <button type="submit" class="btn">Enter</button>
+      </div>
+      </form>
+
+      <form id="sauce">
         <div>
-          <label for="sauce">Please choose a sauce.</label>
-          <ul>
-            <li>robust tomahto</li>
-            <input id="tomahto" type="checkbox">
-            </input>
-            <li>sweet hunny barbeque</li>
-            <input id="barbeque" type="checkbox">
-            </input>
-            <li> garlic parmesan</li>
-            <input id="garlic-parm" type="checkbox">
-            </input>
-          </ul>
+          <span>Please choose a sauce.</span>
+          <br>
+          Robust Tomato <input type="checkbox" class="sauce" id="robust-tomato" value="robust-tomato" onclick="if(this.checked){getSauce()}" />
+          Honey barbeque <input type="checkbox" class="sauce" id="honey-barbeque" value="honey-barbeque" onclick="if(this.checked){getSauce()}" />
+          Garlic Parmesan <input type="checkbox" class="sauce" id="garlic-parmesan" value="garlic-parmesan"
+            onclick="if(this.checked){getSauce()}" />
+      
+          <script type="text/javascript">
+            $('.sauce').on('change', function () {
+              $('.sauce').not(this).prop('checked', false);
+            });
+          </script>
+          <button type="submit" class="btn">Enter</button>
         </div>
-        <div>
+      </form>
+       
+        <!-- <div>
           <label for="meats">Please choose a meat.</label>
           <ul>
             <li>pepperoni</li>
@@ -128,7 +154,7 @@
             <li>shredded provolone</li>
             <input id="shredded-provolone" type="checkbox">
             </input>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </form>
