@@ -1,17 +1,19 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
-  <script src="js/jquery-3.5.1.js"></script>
-  <script src="js/scripts.js"></script>
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-  <link href="css/styles.css" rel="stylesheet" type="text/css">
-  <HEAD>
+<script src="js/jquery-3.5.1.js"></script>
+<script src="js/scripts.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="css/styles.css" rel="stylesheet" type="text/css">
+
+<HEAD>
   <TITLE>Al n Pals Pizza! Freshest Pies made to order!</TITLE>
-  <h3>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
-  <p>We have scrambled eggs & anchovies!</p> </h3>
+  <h3>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster
+    DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
+    <p>We have scrambled eggs & anchovies!</p>
+  </h3>
 </HEAD>
 
 <body>
-
   <div class="container">
     <form id="customer-info">
       Please enter a name for your order:
@@ -21,143 +23,122 @@
     </form>
   </div>
   <p>
-  <h5>Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99), medium ($8.99) or large ($10.99). standard The first two toppings, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
+  <h5>Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99), medium ($8.99) or large ($10.99). standard
+    The first two toppings, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
   </p>
   <div class="container">
-
+    <span id="username-output"></span>
     <form id="size">
       <div>
         <span>Please choose a size</span>
         <br>
-        10" pizza (small) <input type="checkbox" class="size" id="small" value="small" onclick="if(this.checked){getSize()}" />
-        12" pizza (medium) <input type="checkbox" class="size" id="medium" value="medium" onclick="if(this.checked){getSize()}" />
+        10" pizza (small) <input type="checkbox" class="size" id="small" value="small"
+          onclick="if(this.checked){getSize()}" />
+        12" pizza (medium) <input type="checkbox" class="size" id="medium" value="medium"
+          onclick="if(this.checked){getSize()}" />
         14" pizza (large) <input type="checkbox" class="size" id="large" value="medium"
           onclick="if(this.checked){getSize()}" />
-    
         <script type="text/javascript">
           $('.size').on('change', function () {
             $('.size').not(this).prop('checked', false);
           });
+
         </script>
-        <button type="submit" class="btn">Enter</button>
       </div>
     </form>
 
     <form id="crust">
       <div>
-        <span>Please choose a crust.</span> 
+        <span>Please choose a crust.</span>
         <br>
-      Wheat Crust <input type="checkbox" class="crust" id="wheat" value="wheat" onclick="if(this.checked){getCrust()}"  />
-        Thin Crust <input type="checkbox" class="crust" id= "thin" value="thin" onclick="if(this.checked){getCrust()}" />
-        Stuffed Crust <input type="checkbox" class="crust" id= "stuffed" value="stuffed" onclick="if(this.checked){getCrust()}" />
-        
-            <script type="text/javascript">
-              $('.crust').on('change', function () {
-                $('.crust').not(this).prop('checked', false);
-              });
-            </script>
-            <button type="submit" class="btn">Enter</button>
-      </div>
-      </form>
+        Wheat Crust <input type="checkbox" class="crust" id="wheat" value="wheat"
+          onclick="if(this.checked){getCrust()}" />
+        Thin Crust <input type="checkbox" class="crust" id="thin" value="thin" onclick="if(this.checked){getCrust()}" />
+        Stuffed Crust <input type="checkbox" class="crust" id="stuffed" value="stuffed"
+          onclick="if(this.checked){getCrust()}" />
 
-      <form id="sauce">
-        <div>
-          <span>Please choose a sauce.</span>
-          <br>
-          Robust Tomato <input type="checkbox" class="sauce" id="robust-tomato" value="robust-tomato" onclick="if(this.checked){getSauce()}" />
-          Honey barbeque <input type="checkbox" class="sauce" id="honey-barbeque" value="honey-barbeque" onclick="if(this.checked){getSauce()}" />
-          Garlic Parmesan <input type="checkbox" class="sauce" id="garlic-parmesan" value="garlic-parmesan"
-            onclick="if(this.checked){getSauce()}" />
-      
-          <script type="text/javascript">
-            $('.sauce').on('change', function () {
-              $('.sauce').not(this).prop('checked', false);
-            });
-          </script>
-          <button type="submit" class="btn">Enter</button>
-        </div>
-      </form>
-       
-        <!-- <div>
-          <label for="meats">Please choose a meat.</label>
-          <ul>
-            <li>pepperoni</li>
-            <input id="pepperoni" type="checkbox">
-            </input>
-            <li>ham</li>
-            <input id="ham" type="checkbox">
-            </input>
-            <li> sausage</li>
-            <input id="sausage" type="checkbox">
-            </input>
-            <li>bacon</li>
-            <input id="bacon" type="checkbox">
-            </input>
-            <li>scrambled eggs</li>
-            <input id="scrambled-eggs" type="checkbox">
-            </input>
-            <li>chicken</li>
-            <input id="chicken" type="checkbox">
-            </input>
-          </ul>
-        </div>
-        <div>
-          <label for>Please choose your fruits and veggies.</label>
-          <ul>
-            <li>grilled red onions</li>
-            <input id="grilled-red-onions" type="checkbox">
-            </input>
-            <li>roasted garlic</li>
-            <input id="roasted-garlic" type="checkbox">
-            </input>
-            <li>fresh sliced tomato</li>
-            <input id="fresh-sliced-tomato" type="checkbox">
-            </input>
-            <li>pineapple</li>
-            <input id="pineapple" type="checkbox">
-            </input>
-            <li>green peppers</li>
-            <input id="green-peppers" type="checkbox">
-            </input>
-            <li>mushrooms</li>
-            <input id="mushrooms" type="checkbox">
-            </input>
-            <li>black olives</li>
-            <input id="black-olives" type="checkbox">
-            </input>
-            <li>spinach</li>
-            <input id="spinach" type="checkbox">
-            </input>
-            <li>sun dried tomatoes</li>
-            <input id="sun-dried-tomatoes" type="checkbox">
-            </input>
-            <li>fresh jalapenos</li>
-            <input id="fresh-jalapenos" type="checkbox">
-            </input>
-          </ul>
-        </div>
-        <div>
-          <label for="cheese">Please choose your cheeses.</label>
-          <ul>
-            <li>mozzarella</li>
-            <input id="mozzarella" type="checkbox">
-            </input>
-            <li>cheddar</li>
-            <input id="cheddar" type="checkbox">
-            </input>
-            <li>shredded parmesan</li>
-            <input id="shredded-parmesan" type="checkbox">
-            </input>
-            <li>feta</li>
-            <input id="feta" type="checkbox">
-            </input>
-            <li>shredded provolone</li>
-            <input id="shredded-provolone" type="checkbox">
-            </input>
-          </ul> -->
-        </div>
+        <script type="text/javascript">
+          $('.crust').on('change', function () {
+            $('.crust').not(this).prop('checked', false);
+          });
+
+        </script>
+      </div>
+    </form>
+    <form id="sauce">
+      <div>
+        <span>Please choose a sauce.</span>
+        <br>
+        Robust Tomato <input type="checkbox" class="sauce" id="robust-tomato" value="robust-tomato"
+          onclick="if(this.checked){getSauce()}" />
+        Honey barbeque <input type="checkbox" class="sauce" id="honey-barbeque" value="honey-barbeque"
+          onclick="if(this.checked){getSauce()}" />
+        Garlic Parmesan <input type="checkbox" class="sauce" id="garlic-parmesan" value="garlic-parmesan"
+          onclick="if(this.checked){getSauce()}" />
+        <script type="text/javascript">
+          $('.sauce').on('change', function () {
+            $('.sauce').not(this).prop('checked', false);
+          });
+
+        </script>
+      </div>
+    </form>
+    <form id="cheese">
+      <div>
+        <span>Please choose your cheese.</span>
+        <br>
+        Mozzarella <input type="checkbox" class="cheeses" id="mozarella" value="mozarella"
+          onclick="if(this.checked){getCheeses()}" />
+        Cheddar <input type="checkbox" class="cheeses" id="cheddar" value="cheddar"
+          onclick="if(this.checked){getCheeses()}" />
+        Shredded Parmesan <input type="checkbox" class="cheeses" id="shredded-parmesan" value="shredded-parmesan"
+          onclick="if(this.checked){getCheeses()}" />
+        Feta <input type="checkbox" class="cheeses" id="feta" value="feta" onclick="if(this.checked){getCheeses()}" />
+        Provolone <input type="checkbox" class="cheeses" id="provolone" value="provolone"
+          onclick="if(this.checked){getCheeses()}" />
+      </div>
+    </form>
+    <form id="toppings">
+      <div>
+        <span>Please choose your toppings.</span>
+        <br>
+        Pepperoni <input type="checkbox" class="topping" id="pepperoni" value="pepperoni"
+          onclick="if(this.checked){getToppings()}" />
+        Ham <input type="checkbox" class="topping" id="ham" value="ham" onclick="if(this.checked){getToppings()}" />
+        Sausage <input type="checkbox" class="topping" id="sausage" value="sausage"
+          onclick="if(this.checked){getToppings()}" />
+        Anchovies <input type="checkbox" class="topping" id="anchovies" value="anchovies"
+          onclick="if(this.checked){getToppings()}" />
+        Scrambled Eggs <input type="checkbox" class="topping" id="scrambled-eggs" value="scrambled-eggs"
+          onclick="if(this.checked){getToppings()}" />
+        Chicken <input type="checkbox" class="topping" id="chicken" value="chicken"
+          onclick="if(this.checked){getToppings()}" />
+        Bacon <input type="checkbox" class="topping" id="bacon" value="bacon"
+          onclick="if(this.checked){getToppings()}" />
+        Onions <input type="checkbox" class="topping" id="onions" value="onions"
+          onclick="if(this.checked){getToppings()}" />
+        Roasted Garlic <input type="checkbox" class="topping" id="roasted-garlic" value="roasted-garlic"
+          onclick="if(this.checked){getToppings()}" />
+        Fresh Sliced Tomato <input type="checkbox" class="topping" id="fresh-sliced-tomato" value="fresh-sliced-tomato"
+          onclick="if(this.checked){getToppings()}" />
+        Pineapple <input type="checkbox" class="topping" id="pineapple" value="pineapple"
+          onclick="if(this.checked){getToppings()}" />
+        Green Peppers <input type="checkbox" class="topping" id="green-peppers" value="green-peppers"
+          onclick="if(this.checked){getToppings()}" />
+        Mushrooms <input type="checkbox" class="topping" id="mushrooms" value="mushrooms"
+          onclick="if(this.checked){getToppings()}" />
+        Black Olives <input type="checkbox" class="topping" id="black-olives" value="black-olives"
+          onclick="if(this.checked){getToppings()}" />
+        Spinach <input type="checkbox" class="topping" id="spinach" value="spinach"
+          onclick="if(this.checked){getToppings()}" />
+        Sun Dried Tomatoes <input type="checkbox" class="topping" id="sun-dried-tomatoes" value="sun-dried-tomatoes"
+          onclick="if(this.checked){getToppings()}" />
+        Fresh Jalapenos <input type="checkbox" class="topping" id="fresh-jalapenos" value="fresh-jalapenos"
+          onclick="if(this.checked){getToppings()}" />
       </div>
     </form>
   </div>
+
 </body>
+
 </HTML>
