@@ -34,8 +34,23 @@ function CustomerOrder() {
   this.sauceValue = [];
   this.cheeseValue = [];
   this.toppings = [];
-  this.price = 0;
+  this.price = [];
 }
+//function to put all the wrap all the pizza choices together into 1 object
+CustomerOrder.prototype.buildPizza = function () {
+  let size = getSize();
+  let crust = getCrust();
+  let sauce = getSauce();
+  let toppings = getToppings();
+  let cheeses = getCheeses();
+  let price = getPrice();
+  this.price.push(price);
+  this.sizeValue.push(size);
+  this.crustValue.push(crust.toString());
+  this.sauceValue.push(sauce.toString());
+  this.toppings.push(toppings.toString());
+  this.cheeseValue.push(cheeses.toString());
+};
 
 //~~~~~~~~~~~~UI logic~~~~~~~~~~~~
 //This takes the users name from the html form and stores it in username. Then returns username
@@ -64,30 +79,11 @@ $("document").ready(function () {
         customerOrder.toppings +
         " and " +
         customerOrder.cheeseValue +
-        ". Will that be all?"
+        ".Your order number is " +
+        customerDb.orderNumber
     );
   });
 });
-
-// $("document").ready(function () {
-//     event.preventDefault();
-//     console.log(customerOrder);
-//     alert(
-//       "you've added a " +
-//         customerOrder.sizeValue +
-//         " " +
-//         customerOrder.crustValue +
-//         " with " +
-//         customerOrder.sauceValue +
-//         " sauce, " +
-//         customerOrder.toppings +
-//         " and " +
-//         customerOrder.cheeseValue +
-//         ". Will that be all?"
-//     );
-//   });
-
-// });
 
 //function to get size.
 function getSize() {
@@ -101,8 +97,8 @@ function getSize() {
   } else {
     sizeValue = "Please select a size.";
   }
-  console.log(sizeValue);
-  return sizeValue.toString();
+
+  return sizeValue;
 }
 
 //function to get crust type.
@@ -117,7 +113,7 @@ function getCrust() {
   } else {
     crustValue = "Please select a crust.";
   }
-  console.log(crustValue);
+
   return crustValue.toString();
 }
 
@@ -133,7 +129,7 @@ function getSauce() {
   } else {
     sauceValue = "Please select a sauce.";
   }
-  console.log(sauceValue);
+
   return sauceValue.toString();
 }
 //function to get toppings
@@ -190,7 +186,7 @@ function getToppings() {
   if (document.getElementById("fresh-jalapenos").checked == true) {
     toppingsValue.push("fresh-jalapenos");
   }
-  console.log(toppingsValue);
+
   return toppingsValue;
 }
 //function to get cheeses
@@ -211,63 +207,36 @@ function getCheeses() {
   if (document.getElementById("provolone").checked == true) {
     cheesesValue.push("provolone");
   }
-  console.log(cheesesValue);
+
   return cheesesValue;
 }
-
-CustomerOrder.prototype.buildPizza = function () {
+//function to calculate total cost. Adds .75 cents to the total price for every addition topping
+function getPrice() {
+  let toppings = getToppings().length;
+  let cheese = getCheeses().length;
   let size = getSize();
-  let crust = getCrust();
-  let sauce = getSauce();
-  let toppings = getToppings();
-  let cheeses = getCheeses();
-  this.sizeValue.push(size.toString());
-  this.crustValue.push(crust.toString());
-  this.sauceValue.push(sauce.toString());
-  this.toppings.push(toppings.toString());
-  this.cheeseValue.push(cheeses.toString());
-};
+  let currentPrice = 0;
+  let price = 0;
+  let smallSize = 6.99;
+  let mediumSize = 8.99;
+  let largeSize = 10.99;
+  let addToPrice = 0.75;
+  if ((size = "small")) {
+    currentPrice = smallSize;
+  }
+  if ((size = "medium")) {
+    currentPrice = mediumSize;
+  }
+  if ((size = "large")) {
+    currentPrice = largeSize;
+  }
+  for (i = 0; i <= getToppings().length; i++) {
+    currentPrice += addToPrice;
+  }
+  for (i = 0; i >= getCheeses().length; i++) {
+    currentPrice += 0.75;
+  }
 
-// function getCost(cheesesValue, toppingsValue, sizeValue) {
-//   let cheese = [cheesesValue];
-//   let toppings = [toppingsValue];
-//   let size = [sizeValue];
-//   let small = 6.99;
-//   let medium = 8.99;
-//   let large = 10.99;
-//   let addPrice = 0.75;
-//   let currentTotal = 0;
-//   console.log(cheese, toppings, size);
-//   if ((sizeValue = small)) {
-//     currentTotal += small;
-//     cheese.forEach((cheese.length() => {
-//       currentTotal = currentTotal + addPrice
-//     });
-//     toppings.forEach((element) => {
-//       currentTotal += addPrice;
-//     });
-//     console.log(element);
-//     return currentTotal;
-//   } else if ((sizeValue = medium)) {
-//     currentTotal += medium;
-//     cheese.forEach((element) => {
-//       currentTotal += addPrice;
-//     });
-//     toppings.forEach((element) => {
-//       currentTotal += addPrice;
-//     });
-//     console.log(element);
-//     return currentTotal;
-//   } else if ((sizeValue = large)) {
-//     currentTotal += large;
-//     cheese.forEach((element) => {
-//       currentTotal += addPrice;
-//     });
-//     toppings.forEach((element) => {
-//       currentTotal += addPrice;
-//     });
-//     console.log(element);
-//     return currentTotal;
-//   }
-//   console.log("Your pizza total is: $" + currentTotal + ".");
-// }
+  price = currentPrice;
+  return price;
+}
