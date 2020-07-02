@@ -1,7 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
-
-<HEAD>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+  <HEAD>
   <TITLE>Al n Pals Pizza! Freshest Pies made to order!</TITLE>
   <h1>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
   <p>We have scrambled eggs & anchovies! Order the Captain's Special! ~~ $11.99 for a 12"</p> </h1>
@@ -9,18 +12,18 @@
 
 <body>
 
-  <div id="customer-info">
-    <form>
-      <p>Please enter a name for your order:</p>
-      <label for="username">username:</label>
-      <input id="username" name="username">
-      <button type="submit">Enter!</button>
+  <div class="container">
+    <form id="customer-info">
+      Please enter a name for your order:
+      <label for="username">name:</label>
+      <input id="username" type="text">
+      <button type="submit" class="btn">Enter!</button>
     </form>
   </div>
   <p>
-  <h2>please create your pizza! Each Pizza comes 12" standard The first two toppings, crust, sauce, and 1 cheese are a standard $7.99. Each additional topping after that is an additional $0.75</h2>
+  <h2>Please create your pizza! Each Pizza comes 12" standard The first two toppings, crust, sauce, and 1 cheese are a standard $7.99. Each additional topping after that is an additional $0.75</h2>
   </p>
-  <div id="order">
+  <div class="container">
     <form id="customer-order">
       <div>
         <label for="crust">Please choose a crust.</label>
@@ -131,5 +134,4 @@
     </form>
   </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </HTML>

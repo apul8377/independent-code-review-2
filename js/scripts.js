@@ -1,30 +1,29 @@
-function CustomerId() {
-  (this.customerInfo = []), (this.currentId = 0);
+// //~~~~~~~~Business Logic~~~~~~~~~~
+
+//The constructor to build a customer with an associated id/order number
+function CustomerDb() {
+  (this.name = []), (this.orderNumber = 0);
 }
 
-CustomerId.prototype.addCustomer = function (customer) {
-  customer.id = this.assignId();
-  this.customerInfo.push(customer);
+//This is where we will increment an order number by 1 to associate with each new order
+CustomerDb.prototype.assignOrderNumber = function () {
+  this.orderNumber += 1;
+  return this.orderNumber;
 };
 
-CustomerId.prototype.assignId = function () {
-  this.currentId += 1;
-  return this.currentId;
-};
-function Customer(userName, passWord) {
-  (this.userName = userName), (this.passWord = passWord);
-}
+CustomerDb.prototype.storeCustomers = function (customer) {};
 
-//UI logic~~~~~~~~~~~~~~~~~~~~
-let customerId = new CustomerId();
-$(document).ready(function () {
+//~~~~~~~~~~~~UI logic~~~~~~~~~~~~
+//This takes the users name from the html form and stores it in username. Then returns username
+
+$("document").ready(function () {
   $("form#customer-info").submit(function (event) {
     event.preventDefault();
-
-    const userName = $("input#username").val();
-
-    console.log("input received, validating....");
-    let newCustomer = new Customer(userName, passWord);
-    customerId.addCustomer(newCustomer);
+    let name = $("input#username").val();
+    let newName = name;
+    // let newNumber = assignOrderNumber();
+    let newCustomer = new Customer(name, newNumber);
+    storeCustomers(newCustomer);
+    console.log(newCustomer);
   });
 });
