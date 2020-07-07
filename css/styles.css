@@ -1,11 +1,11 @@
-#effects {
-  display: none;
-} 
-
-#symptoms {
-  display: none;
+h3 {
+  background-color: rgb(158, 218, 236);
+  border-style: ridge;
 }
- 
-#relief {
-  display: none;
+h5 {
+  border-style: double;
+}
+body {
+  text-align: center;
+  background-color: rgb(0, 174, 255);
 }

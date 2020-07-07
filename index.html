@@ -8,8 +8,8 @@
 <HEAD>
   <TITLE>Al n Pals Pizza! Freshest Pies made to order!</TITLE>
   <h3>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster
-    DR ne. We are now taking orders online. So what are you waiting for? Order a pizza!
-    <p>We have scrambled eggs & anchovies!</p>
+    DR ne. We are now taking orders online. ~~~~~~So what are you waiting for? Order a pizza!~~~~~~
+    <p>~~We have scrambled eggs & anchovies!~~</p>
   </h3>
 </HEAD>
 
@@ -19,14 +19,13 @@
     The first topping, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
   </p>
   <div class="container">
-    <span id="username-output"></span>
-      <div>
-        <select class="form-control" id="size">
+    <div>
+      <select class="form-control" id="size">
         <option value="small"> 10" small pizza</option>
         <option value="medium"> 12" medium pizza</option>
         <option value="large"> 14" large pizza</option>
-          </select>
-      </div>
+      </select>
+    </div>
     <div>
       <select class="form-control" id="crust">
         <option value="wheat-crust">Wheat Crust</option>
@@ -39,72 +38,59 @@
         <option value="robust-tomato">Robust Tomato</option>
         <option value="honey-barbeque">Honey Barbeque</option>
         <option value="garlic-parmesan">Garlic Parmesan</option>
-      </select> 
+      </select>
     </div>
 
-    <!-- <form id="cheese">
+  
       <div>
         <span>Please choose your cheese.</span>
         <br>
-        Mozzarella <input type="checkbox" class="cheeses" id="mozarella" value="mozarella"
-          onclick="if(this.checked){getCheeses()}" />
-        Cheddar <input type="checkbox" class="cheeses" id="cheddar" value="cheddar"
-          onclick="if(this.checked){getCheeses()}" />
-        Shredded Parmesan <input type="checkbox" class="cheeses" id="shredded-parmesan" value="shredded-parmesan"
-          onclick="if(this.checked){getCheeses()}" />
-        Feta <input type="checkbox" class="cheeses" id="feta" value="feta" onclick="if(this.checked){getCheeses()}" />
-        Provolone <input type="checkbox" class="cheeses" id="provolone" value="provolone"
-          onclick="if(this.checked){getCheeses()}" />
+        Mozzarella <input type="checkbox" name="cheeses" id="mozarella" value="mozarella" />
+        Cheddar <input type="checkbox" class="cheeses" id="cheddar" value="cheddar" />
+        Shredded Parmesan <input type="checkbox" name="cheeses" id="shredded-parmesan" value="shredded-parmesan" />
+        Feta <input type="checkbox" name="cheeses" id="feta" value="feta" />
+        Provolone <input type="checkbox" name="cheeses" id="provolone" value="provolone" />
       </div>
-    </form>
-    <form id="toppings">
+
+    <br>
+
       <div>
         <span>Please choose your toppings.</span>
         <br>
-        Pepperoni <input type="checkbox" class="topping" id="pepperoni" value="pepperoni"
-          onclick="if(this.checked){getToppings()}" />
-        Ham <input type="checkbox" class="topping" id="ham" value="ham" onclick="if(this.checked){getToppings()}" />
-        Sausage <input type="checkbox" class="topping" id="sausage" value="sausage"
-          onclick="if(this.checked){getToppings()}" />
-        Anchovies <input type="checkbox" class="topping" id="anchovies" value="anchovies"
-          onclick="if(this.checked){getToppings()}" />
-        Scrambled Eggs <input type="checkbox" class="topping" id="scrambled-eggs" value="scrambled-eggs"
-          onclick="if(this.checked){getToppings()}" />
-        Chicken <input type="checkbox" class="topping" id="chicken" value="chicken"
-          onclick="if(this.checked){getToppings()}" />
-        Bacon <input type="checkbox" class="topping" id="bacon" value="bacon"
-          onclick="if(this.checked){getToppings()}" />
-        Onions <input type="checkbox" class="topping" id="onions" value="onions"
-          onclick="if(this.checked){getToppings()}" />
-        Roasted Garlic <input type="checkbox" class="topping" id="roasted-garlic" value="roasted-garlic"
-          onclick="if(this.checked){getToppings()}" />
-        Fresh Sliced Tomato <input type="checkbox" class="topping" id="fresh-sliced-tomato" value="fresh-sliced-tomato"
-          onclick="if(this.checked){getToppings()}" />
-        Pineapple <input type="checkbox" class="topping" id="pineapple" value="pineapple"
-          onclick="if(this.checked){getToppings()}" />
-        Green Peppers <input type="checkbox" class="topping" id="green-peppers" value="green-peppers"
-          onclick="if(this.checked){getToppings()}" />
-        Mushrooms <input type="checkbox" class="topping" id="mushrooms" value="mushrooms"
-          onclick="if(this.checked){getToppings()}" />
-        Black Olives <input type="checkbox" class="topping" id="black-olives" value="black-olives"
-          onclick="if(this.checked){getToppings()}" />
-        Spinach <input type="checkbox" class="topping" id="spinach" value="spinach"
-          onclick="if(this.checked){getToppings()}" />
-        Sun Dried Tomatoes <input type="checkbox" class="topping" id="sun-dried-tomatoes" value="sun-dried-tomatoes"
-          onclick="if(this.checked){getToppings()}" />
-        Fresh Jalapenos <input type="checkbox" class="topping" id="fresh-jalapenos" value="fresh-jalapenos"
-          onclick="if(this.checked){getToppings()}" />
+        Pepperoni <input type="checkbox" name="topping" id="pepperoni" value="pepperoni" />
+        Ham <input type="checkbox" name="topping" id="ham" value="ham" />
+        Sausage <input type="checkbox" name="topping" id="sausage" value="sausage" />
+        Anchovies <input type="checkbox" name="topping" id="anchovies" value="anchovies" />
+        Scrambled Eggs <input type="checkbox" name="topping" id="scrambled-eggs" value="scrambled-eggs" />
+        Chicken <input type="checkbox" name="topping" id="chicken" value="chicken" />
+        Bacon <input type="checkbox" name="topping" id="bacon" value="bacon" />
+        Onions <input type="checkbox" name="topping" id="onions" value="onions" />
+        Roasted Garlic <input type="checkbox" name="topping" id="roasted-garlic" value="roasted-garlic" />
+        Fresh Sliced Tomato <input type="checkbox" name="topping" id="fresh-sliced-tomato"
+          value="fresh-sliced-tomato" />
+        Pineapple <input type="checkbox" name="topping" id="pineapple" value="pineapple" />
+        Green Peppers <input type="checkbox" name="topping" id="green-peppers" value="green-peppers" />
+        Mushrooms <input type="checkbox" name="topping" id="mushrooms" value="mushrooms" />
+        Black Olives <input type="checkbox" name="topping" id="black-olives" value="black-olives" />
+        Spinach <input type="checkbox" name="topping" id="spinach" value="spinach" />
+        Sun Dried Tomatoes <input type="checkbox" name="topping" id="sun-dried-tomatoes" value="sun-dried-tomatoes" />
+        Fresh Jalapenos <input type="checkbox" name="topping" id="fresh-jalapenos" value="fresh-jalapenos" />
       </div>
-    </form> -->
+
 
 
     <br>
     <br>
     <form id="submit-pizza">
-      Please enter a name for your order:
-      <label for="username"></label>
+
+      <br>
+      <label for="username">Please enter a name for your order:</label>
+      <br>
+
       <input id="username" type="text">
-  <button type="submit"  class="btn">Finished building my pizza</button>
+      <br>
+      <br>
+      <button type="submit" class="btn">Place my Order</button>
     </form>
   </div>
 

@@ -1,4 +1,4 @@
-//~~~~~~~~~~~Business Logic~~~~~~~~~~~~
+//~~~~~~~~~~~Business Logic~~~~~~~~~~\\
 ///\/\/\/\/\/\CONSTRUCTORS\/\/\/\/\/\\\
 //The constructor to store our customer order history
 
@@ -12,11 +12,13 @@ function CustomerDb() {
 // }
 
 //This is our Pizza Object Constructor where user's choices will be stored
-function CustomerOrder(name, size, crust, sauce, total) {
+function CustomerOrder(name, size, crust, sauce, cheese, toppings, total) {
   this.name = name;
   this.size = size;
   this.crust = crust;
   this.sauce = sauce;
+  this.cheese = cheese;
+  this.toppings = toppings;
   this.total = total;
 }
 
@@ -32,24 +34,33 @@ CustomerDb.prototype.assignId = function () {
   return this.currentNumber;
 };
 
-function assignPrice(size) {
+function assignPrice(size, toppings) {
   let small = 6.99;
   let medium = 8.99;
   let large = 10.99;
   let total = 0;
-  console.log(size);
+  let topTotal = 0;
+  let addTop = 0.75;
+
+  for (let i = 0; i <= toppings.length; i++) {
+    topTotal = topTotal + addTop;
+  }
   size = size.toString();
   if (size == "small") {
     total = small;
-    return total;
+    total += topTotal;
+    return total.toFixed(2);
   } else if (size == "medium") {
     total = medium;
-    return total;
+    total += topTotal;
+    return total.toFixed(2);
   } else if (size == "large") {
     total = large;
-    return total;
+    total += topTotal;
+    return total.toFixed(2);
   }
-  return total;
+  total += topTotal;
+  return total.toFixed(2);
 }
 
 // UI logic
@@ -62,8 +73,27 @@ $("document").ready(function () {
     let crust = $("#crust").val();
     let sauce = $("#sauce").val();
     let name = $("input#username").val();
-    let total = assignPrice(size);
-    let newCustomerOrder = new CustomerOrder(name, size, crust, sauce, total);
+    const cheese = [];
+    const toppings = [];
+    $("input:checkbox[name=cheeses]:checked").each(function () {
+      const cheeses = $(this).val();
+      cheese.push(cheeses);
+    });
+    $("input:checkbox[name=topping]:checked").each(function () {
+      const topping = $(this).val();
+      toppings.push(topping);
+    });
+
+    let total = assignPrice(size, toppings);
+    let newCustomerOrder = new CustomerOrder(
+      name,
+      size,
+      crust,
+      sauce,
+      cheese,
+      toppings,
+      total
+    );
     newCustomerDb.storeOrders(newCustomerOrder);
     $("input#username").val(" ");
     alert(
@@ -75,7 +105,11 @@ $("document").ready(function () {
         newCustomerOrder.crust +
         " with " +
         newCustomerOrder.sauce +
-        " sauce. Your order number is " +
+        " sauce, and " +
+        newCustomerOrder.cheese +
+        " cheese(s). Your toppings are " +
+        newCustomerOrder.toppings +
+        ". Your order number is " +
         newCustomerDb.currentNumber +
         ". You're total is " +
         newCustomerOrder.total
