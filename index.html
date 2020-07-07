@@ -20,62 +20,29 @@
   </p>
   <div class="container">
     <span id="username-output"></span>
-    <form id="size">
       <div>
-        <span>Please choose a size</span>
-        <br>
-        10" pizza (small) <input type="checkbox" class="size" id="small" value="small"
-          onclick="if(this.checked){getSize()}" />
-        12" pizza (medium) <input type="checkbox" class="size" id="medium" value="medium"
-          onclick="if(this.checked){getSize()}" />
-        14" pizza (large) <input type="checkbox" class="size" id="large" value="medium"
-          onclick="if(this.checked){getSize()}" />
-        <script type="text/javascript">
-          $('.size').on('change', function () {
-            $('.size').not(this).prop('checked', false);
-          });
-
-        </script>
+        <select class="form-control" id="size">
+        <option value="small"> 10" small pizza</option>
+        <option value="medium"> 12" medium pizza</option>
+        <option value="large"> 14" large pizza</option>
+          </select>
       </div>
-    </form>
+    <div>
+      <select class="form-control" id="crust">
+        <option value="wheat-crust">Wheat Crust</option>
+        <option value="thin-crust"> Thin Crust</option>
+        <option value="stuffed-crust"> Stuffed Crust</option>
+      </select>
+    </div>
+    <div>
+      <select class="form-control" id="sauce">
+        <option value="robust-tomato">Robust Tomato</option>
+        <option value="honey-barbeque">Honey Barbeque</option>
+        <option value="garlic-parmesan">Garlic Parmesan</option>
+      </select> 
+    </div>
 
-    <form id="crust">
-      <div>
-        <span>Please choose a crust.</span>
-        <br>
-        Wheat Crust <input type="checkbox" class="crust" id="wheat" value="wheat"
-          onclick="if(this.checked){getCrust()}" />
-        Thin Crust <input type="checkbox" class="crust" id="thin" value="thin" onclick="if(this.checked){getCrust()}" />
-        Stuffed Crust <input type="checkbox" class="crust" id="stuffed" value="stuffed"
-          onclick="if(this.checked){getCrust()}" />
-
-        <script type="text/javascript">
-          $('.crust').on('change', function () {
-            $('.crust').not(this).prop('checked', false);
-          });
-
-        </script>
-      </div>
-    </form>
-    <form id="sauce">
-      <div>
-        <span>Please choose a sauce.</span>
-        <br>
-        Robust Tomato <input type="checkbox" class="sauce" id="robust-tomato" value="robust-tomato"
-          onclick="if(this.checked){getSauce()}" />
-        Honey barbeque <input type="checkbox" class="sauce" id="honey-barbeque" value="honey-barbeque"
-          onclick="if(this.checked){getSauce()}" />
-        Garlic Parmesan <input type="checkbox" class="sauce" id="garlic-parmesan" value="garlic-parmesan"
-          onclick="if(this.checked){getSauce()}" />
-        <script type="text/javascript">
-          $('.sauce').on('change', function () {
-            $('.sauce').not(this).prop('checked', false);
-          });
-
-        </script>
-      </div>
-    </form>
-    <form id="cheese">
+    <!-- <form id="cheese">
       <div>
         <span>Please choose your cheese.</span>
         <br>
@@ -128,14 +95,16 @@
         Fresh Jalapenos <input type="checkbox" class="topping" id="fresh-jalapenos" value="fresh-jalapenos"
           onclick="if(this.checked){getToppings()}" />
       </div>
-    </form>
+    </form> -->
+
+
     <br>
     <br>
     <form id="submit-pizza">
       Please enter a name for your order:
       <label for="username"></label>
       <input id="username" type="text">
-  <button type="submit" class="btn">Finished building my pizza</button>
+  <button type="submit"  class="btn">Finished building my pizza</button>
     </form>
   </div>
 
