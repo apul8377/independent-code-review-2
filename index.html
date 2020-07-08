@@ -1,99 +1,189 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<HTML>
-<script src="js/jquery-3.5.1.js"></script>
-<script src="js/scripts.js"></script>
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="css/styles.css" rel="stylesheet" type="text/css">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <script src="js/jquery-3.5.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+  <link href="css/styles.css" rel="stylesheet" type="text/css" />
 
-<HEAD>
-  <TITLE>Al n Pals Pizza! Freshest Pies made to order!</TITLE>
-  <h3>Here at Al n Pals Pizza we provide fresh handmade pizzas to the public from our food truck at 45th and Lancaster
-    DR ne. We are now taking orders online. ~~~~~~So what are you waiting for? Order a pizza!~~~~~~
-    <p>~~We have scrambled eggs & anchovies!~~</p>
-  </h3>
-</HEAD>
+  <head>
+    <title>Al n Pals Pizza! Freshest Pies made to order!</title>
+    <h3>
+      Here at Al n Pals Pizza we provide fresh handmade pizzas to the public
+      from our food truck at 45th and Lancaster DR ne. We are now taking orders
+      online. ~~~~~~So what are you waiting for? Order a pizza!~~~~~~
+      <p>~~We have scrambled eggs & anchovies!~~</p>
+    </h3>
+  </head>
 
-<body>
-  <p>
-  <h5>Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99), medium ($8.99) or large ($10.99).
-    The first topping, crust, sauce, and 1 cheese are standard. Each topping after that is an additional $0.75</h5>
-  </p>
-  <div class="container">
-    <div>
-      <select class="form-control" id="size">
-        <option value="small"> 10" small pizza</option>
-        <option value="medium"> 12" medium pizza</option>
-        <option value="large"> 14" large pizza</option>
-      </select>
-    </div>
-    <div>
-      <select class="form-control" id="crust">
-        <option value="wheat-crust">Wheat Crust</option>
-        <option value="thin-crust"> Thin Crust</option>
-        <option value="stuffed-crust"> Stuffed Crust</option>
-      </select>
-    </div>
-    <div>
-      <select class="form-control" id="sauce">
-        <option value="robust-tomato">Robust Tomato</option>
-        <option value="honey-barbeque">Honey Barbeque</option>
-        <option value="garlic-parmesan">Garlic Parmesan</option>
-      </select>
-    </div>
-
-  
+  <body>
+    <p>
+      <marquee behavior="scroll" direction="left"
+        ><h5>
+          Please create your pizza! Each Pizza comes in 3 sizes: small ($6.99),
+          medium ($8.99) or large ($10.99). The first topping, crust, sauce, and
+          1 cheese are standard. Each topping after that is an additional $0.75
+        </h5></marquee
+      >
+    </p>
+    <div class="container">
       <div>
-        <span>Please choose your cheese.</span>
-        <br>
-        Mozzarella <input type="checkbox" name="cheeses" id="mozarella" value="mozarella" />
-        Cheddar <input type="checkbox" class="cheeses" id="cheddar" value="cheddar" />
-        Shredded Parmesan <input type="checkbox" name="cheeses" id="shredded-parmesan" value="shredded-parmesan" />
-        Feta <input type="checkbox" name="cheeses" id="feta" value="feta" />
-        Provolone <input type="checkbox" name="cheeses" id="provolone" value="provolone" />
+        <select class="form-control" id="size">
+          <option value="small"> 10" small pizza</option>
+          <option value="medium"> 12" medium pizza</option>
+          <option value="large"> 14" large pizza</option>
+        </select>
+      </div>
+      <div>
+        <select class="form-control" id="crust">
+          <option value="wheat-crust">Wheat Crust</option>
+          <option value="thin-crust"> Thin Crust</option>
+          <option value="stuffed-crust"> Stuffed Crust</option>
+        </select>
+      </div>
+      <div>
+        <select class="form-control" id="sauce">
+          <option value="robust-tomato">Robust Tomato</option>
+          <option value="honey-barbeque">Honey Barbeque</option>
+          <option value="garlic-parmesan">Garlic Parmesan</option>
+        </select>
       </div>
 
-    <br>
+      <div>
+        <span>Please choose your cheese.</span>
+        <br />
+        Mozzarella
+        <input
+          type="checkbox"
+          name="cheeses"
+          id="mozarella"
+          value="mozarella"
+        />
+        Cheddar
+        <input type="checkbox" class="cheeses" id="cheddar" value="cheddar" />
+        Shredded Parmesan
+        <input
+          type="checkbox"
+          name="cheeses"
+          id="shredded-parmesan"
+          value="shredded-parmesan"
+        />
+        Feta
+        <input type="checkbox" name="cheeses" id="feta" value="feta" />
+        Provolone
+        <input
+          type="checkbox"
+          name="cheeses"
+          id="provolone"
+          value="provolone"
+        />
+      </div>
+
+      <br />
 
       <div>
         <span>Please choose your toppings.</span>
-        <br>
-        Pepperoni <input type="checkbox" name="topping" id="pepperoni" value="pepperoni" />
-        Ham <input type="checkbox" name="topping" id="ham" value="ham" />
-        Sausage <input type="checkbox" name="topping" id="sausage" value="sausage" />
-        Anchovies <input type="checkbox" name="topping" id="anchovies" value="anchovies" />
-        Scrambled Eggs <input type="checkbox" name="topping" id="scrambled-eggs" value="scrambled-eggs" />
-        Chicken <input type="checkbox" name="topping" id="chicken" value="chicken" />
-        Bacon <input type="checkbox" name="topping" id="bacon" value="bacon" />
-        Onions <input type="checkbox" name="topping" id="onions" value="onions" />
-        Roasted Garlic <input type="checkbox" name="topping" id="roasted-garlic" value="roasted-garlic" />
-        Fresh Sliced Tomato <input type="checkbox" name="topping" id="fresh-sliced-tomato"
-          value="fresh-sliced-tomato" />
-        Pineapple <input type="checkbox" name="topping" id="pineapple" value="pineapple" />
-        Green Peppers <input type="checkbox" name="topping" id="green-peppers" value="green-peppers" />
-        Mushrooms <input type="checkbox" name="topping" id="mushrooms" value="mushrooms" />
-        Black Olives <input type="checkbox" name="topping" id="black-olives" value="black-olives" />
-        Spinach <input type="checkbox" name="topping" id="spinach" value="spinach" />
-        Sun Dried Tomatoes <input type="checkbox" name="topping" id="sun-dried-tomatoes" value="sun-dried-tomatoes" />
-        Fresh Jalapenos <input type="checkbox" name="topping" id="fresh-jalapenos" value="fresh-jalapenos" />
+        <br />
+        Pepperoni
+        <input
+          type="checkbox"
+          name="topping"
+          id="pepperoni"
+          value="pepperoni"
+        />
+        Ham
+        <input type="checkbox" name="topping" id="ham" value="ham" /> Sausage
+        <input type="checkbox" name="topping" id="sausage" value="sausage" />
+        Anchovies
+        <input
+          type="checkbox"
+          name="topping"
+          id="anchovies"
+          value="anchovies"
+        />
+        Scrambled Eggs
+        <input
+          type="checkbox"
+          name="topping"
+          id="scrambled-eggs"
+          value="scrambled-eggs"
+        />
+        Chicken
+        <input type="checkbox" name="topping" id="chicken" value="chicken" />
+        Bacon
+        <input type="checkbox" name="topping" id="bacon" value="bacon" /> Onions
+        <input type="checkbox" name="topping" id="onions" value="onions" />
+        Roasted Garlic
+        <input
+          type="checkbox"
+          name="topping"
+          id="roasted-garlic"
+          value="roasted-garlic"
+        />
+        Fresh Sliced Tomato
+        <input
+          type="checkbox"
+          name="topping"
+          id="fresh-sliced-tomato"
+          value="fresh-sliced-tomato"
+        />
+        Pineapple
+        <input
+          type="checkbox"
+          name="topping"
+          id="pineapple"
+          value="pineapple"
+        />
+        Green Peppers
+        <input
+          type="checkbox"
+          name="topping"
+          id="green-peppers"
+          value="green-peppers"
+        />
+        Mushrooms
+        <input
+          type="checkbox"
+          name="topping"
+          id="mushrooms"
+          value="mushrooms"
+        />
+        Black Olives
+        <input
+          type="checkbox"
+          name="topping"
+          id="black-olives"
+          value="black-olives"
+        />
+        Spinach
+        <input type="checkbox" name="topping" id="spinach" value="spinach" />
+        Sun Dried Tomatoes
+        <input
+          type="checkbox"
+          name="topping"
+          id="sun-dried-tomatoes"
+          value="sun-dried-tomatoes"
+        />
+        Fresh Jalapenos
+        <input
+          type="checkbox"
+          name="topping"
+          id="fresh-jalapenos"
+          value="fresh-jalapenos"
+        />
       </div>
 
+      <br />
+      <br />
+      <form id="submit-pizza">
+        <br />
+        <label for="username">Please enter a name for your order:</label>
+        <br />
 
-
-    <br>
-    <br>
-    <form id="submit-pizza">
-
-      <br>
-      <label for="username">Please enter a name for your order:</label>
-      <br>
-
-      <input id="username" type="text">
-      <br>
-      <br>
-      <button type="submit" class="btn">Place my Order</button>
-    </form>
-  </div>
-
-</body>
-
-</HTML>
+        <input id="username" type="text" />
+        <br />
+        <br />
+        <button type="submit" class="btn">Place my Order</button>
+      </form>
+    </div>
+  </body>
+</html>
